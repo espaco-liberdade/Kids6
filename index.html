@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 5: Pique-Esconde no Jardim!</title>
+    
+    <style>
+        /* Importando fontes do Google */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+        /* Estilos específicos para a aula, encapsulados pelo ID #apostila-aula-kids-5 */
+        #apostila-aula-kids-5 { 
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            color: #3a3a3a;
+            line-height: 1.7; 
+            background-color: #ffffff;
+            padding: 25px; 
+            border: 1px solid #e0e0e0;
+            border-radius: 10px; 
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        #apostila-aula-kids-5 h1 { 
+            color: #27ae60; /* Verde Jardim */
+            border-bottom: 4px solid #e91e63; /* Rosa Flor */
+            padding-bottom: 15px;
+            font-size: 28px; 
+            margin-top: 0; 
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'Fredoka One', cursive;
+            letter-spacing: 1px;
+        }
+
+        #apostila-aula-kids-5 h2 { 
+            color: #8e44ad; /* Roxo */
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-size: 24px; 
+            border-bottom: 2px solid #d2b4de;
+            padding-bottom: 10px;
+            font-family: 'Fredoka One', cursive;
+        }
+
+        #apostila-aula-kids-5 h3 { 
+            color: #c0392b; /* Vermelho */
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 20px; 
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        #apostila-aula-kids-5 h4 { 
+            color: #d35400; /* Laranja */
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 18px; 
+            font-weight: 600;
+        }
+
+        #apostila-aula-kids-5 table.vocab-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); 
+            font-size: 14px;
+            border-radius: 8px;
+            overflow: hidden; 
+        }
+
+        #apostila-aula-kids-5 .vocab-table th, 
+        #apostila-aula-kids-5 .vocab-table td {
+            border: 1px solid #e0e0e0;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        #apostila-aula-kids-5 .vocab-table th {
+            background-color: #27ae60;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        #apostila-aula-kids-5 .vocab-table tr:nth-child(even) {
+            background-color: #f9fbe7; /* Verde limão muito claro */
+        }
+
+        #apostila-aula-kids-5 .vocab-table tr:hover {
+            background-color: #dcedc8;
+        }
+
+        #apostila-aula-kids-5 .nota-dica { 
+            background-color: #e8f5e9; 
+            border-left: 5px solid #4caf50; 
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        #apostila-aula-kids-5 .nota-dica h4 {
+            color: #2e7d32;
+            margin-top: 0;
+            font-size: 17px; 
+            font-family: 'Fredoka One', cursive;
+        }
+
+        #apostila-aula-kids-5 .secao-pratica { 
+            background-color: #f3e5f5; /* Roxo claro */
+            border-left: 5px solid #9c27b0; 
+            padding: 20px; 
+            margin: 20px 0; 
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        #apostila-aula-kids-5 .secao-pratica h3 {
+            color: #7b1fa2; 
+            margin-top: 0;
+            font-size: 20px; 
+            font-family: 'Fredoka One', cursive;
+        }
+
+        #apostila-aula-kids-5 code, 
+        #apostila-aula-kids-5 .ipa-symbol { 
+            background-color: #f0e6ff;
+            padding: 2px 6px; 
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #8e44ad;
+            font-size: 0.95em;
+            border: 1px solid #d2b4de;
+        }
+
+        #apostila-aula-kids-5 .emoji-small { font-size: 1em; } 
+        #apostila-aula-kids-5 .emoji-medium { font-size: 1.3em; }
+        #apostila-aula-kids-5 .emoji-large { font-size: 1.6em; }
+
+        #apostila-aula-kids-5 .vocab-table .ipa-column {
+            font-family: 'Courier New', Courier, monospace;
+            color: #8e44ad; 
+            font-weight: bold;
+            font-size: 0.9em;
+            display: block; 
+            margin-bottom: 3px;
+            margin-top: 3px;
+        }
+        
+        #apostila-aula-kids-5 .ipa-phrase-block {
+            display: block; 
+            font-size: 0.85em;
+            margin-top: 4px; 
+            margin-bottom: 8px;
+        }
+        #apostila-aula-kids-5 .ipa-phrase-block code { 
+            background-color: #f0e6ff;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #8e44ad;
+            border: 1px solid #d2b4de;
+        }
+
+        #apostila-aula-kids-5 .example-word {
+            font-weight: bold;
+            color: #27ae60; 
+            font-size: 1.1em;
+        }
+        
+        /* Estilo para a tradução nas tabelas */
+        #apostila-aula-kids-5 .translation-in-cell {
+            display: block;
+            font-size: 0.9em;
+            color: #555;
+            font-style: italic;
+            margin-top: 2px;
+            margin-bottom: 5px;
+        }
+
+        #apostila-aula-kids-5 .theme-intro-kids { 
+            background-color: #e8f5e9; 
+            border: 2px dashed #66bb6a; 
+            padding: 15px; 
+            margin-bottom: 25px; 
+            border-radius: 10px;
+            text-align: center;
+            font-style: italic;
+            font-size: 17px; 
+        }
+        #apostila-aula-kids-5 .theme-intro-kids p {
+            margin: 0;
+            color: #2e7d32; 
+        }
+
+        /* BOTOES DE ÁUDIO */
+        #apostila-aula-kids-5 .btn-container {
+            white-space: nowrap;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        /* Botão Play Normal (Verde) */
+        #apostila-aula-kids-5 .play-btn { 
+            background-color: #2ecc71; 
+            color: white !important; 
+            padding: 4px 10px; 
+            border: none;
+            border-radius: 20px; 
+            cursor: pointer;
+            font-size: 0.85em; 
+            margin-right: 5px; 
+            transition: background-color 0.2s;
+            display: inline-block; 
+        }
+        #apostila-aula-kids-5 .play-btn:hover {
+            background-color: #27ae60; 
+        }
+
+        /* Botão Play Lento (Laranja) */
+        #apostila-aula-kids-5 .slow-btn { 
+            background-color: #f39c12; 
+            color: white !important; 
+            padding: 4px 10px; 
+            border: none;
+            border-radius: 20px; 
+            cursor: pointer;
+            font-size: 0.85em; 
+            transition: background-color 0.2s;
+            display: inline-block; 
+        }
+        #apostila-aula-kids-5 .slow-btn:hover {
+            background-color: #e67e22; 
+        }
+
+        #apostila-aula-kids-5 .exercise-list {
+            list-style-type: none; 
+            padding-left: 0; 
+        }
+
+        #apostila-aula-kids-5 .exercise-list li {
+            margin-bottom: 15px;
+            padding-left: 25px; 
+            position: relative;
+        }
+
+        #apostila-aula-kids-5 .exercise-list li::before {
+            content: "🌳"; 
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+
+        #apostila-aula-kids-5 p, 
+        #apostila-aula-kids-5 ul, 
+        #apostila-aula-kids-5 ol,
+        #apostila-aula-kids-5 li {
+            margin: 0 0 1em 0; 
+            padding: 0; 
+            font-size: 1em; 
+            line-height: 1.7; 
+        }
+        #apostila-aula-kids-5 ul ul, 
+        #apostila-aula-kids-5 ol ol,
+        #apostila-aula-kids-5 ul ol,
+        #apostila-aula-kids-5 ol ul { 
+            margin-left: 20px; 
+            margin-top: 0.5em; 
+        }
+        #apostila-aula-kids-5 .exercise-list {
+             margin-left: 0; 
+        }
+
+        #apostila-aula-kids-5 .character-portuguese-phonetics {
+            font-size: 0.9em; 
+            color: #2E7D32;
+            font-family: 'Poppins', sans-serif;
+            font-style: italic;
+            display: block; 
+            margin-top: 2px; 
+            margin-bottom: 2px; 
+        }
+        
+        #apostila-aula-kids-5 .vocab-table td .character-portuguese-phonetics {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        #apostila-aula-kids-5 .secao-pratica .exercise-list p,
+        #apostila-aula-kids-5 .secao-pratica .exercise-list li {
+            margin-bottom: 8px; 
+        }
+        #apostila-aula-kids-5 .secao-pratica .exercise-list .ipa-phrase-block {
+            margin-top: 2px; 
+            margin-bottom: 10px; 
+        }
+        #apostila-aula-kids-5 .dialogue {
+            border: 1px solid #a5d6a7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background-color: #e8f5e9;
+        }
+        #apostila-aula-kids-5 .dialogue p {
+            margin-bottom: 10px;
+        }
+        #apostila-aula-kids-5 .character {
+            font-weight: bold;
+            color: #d35400;
+        }
+        
+        /* Estilos para as novas sessões de Detetive */
+        #apostila-aula-kids-5 .detetive-box {
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+        }
+        #apostila-aula-kids-5 .detetive-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        #apostila-aula-kids-5 .detetive-list li {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #ccc;
+        }
+        #apostila-aula-kids-5 .detetive-list li:last-child {
+            border-bottom: none;
+        }
+        #apostila-aula-kids-5 .detetive-example {
+            display: block;
+            color: #555;
+            font-style: italic;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+        #apostila-aula-kids-5 .fill-in-blank {
+            display: inline-block;
+            width: 100px;
+            border-bottom: 2px solid #27ae60;
+            margin: 0 5px;
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+<body>
+
+<div id="apostila-aula-kids-5">
+    
+    <h1><span class="emoji-large">🌳</span> Aula 5: Pique-Esconde no Jardim! <span class="emoji-large">🙈</span><br />(Lesson 5: Hide and Seek in the Garden!)</h1>
+
+    <!-- 1. SESSÃO DE INTRODUÇÃO -->
+    <div class="theme-intro-kids">
+        <p>O sol está brilhando e o jardim está chamando! ☀️ Hoje vamos brincar de Pique-Esconde (Hide and Seek). Para isso, precisamos saber onde nos esconder! Atrás da árvore? Embaixo do banco? Vamos aprender as palavras mágicas para nos esconder bem!</p>
+    </div>
+
+    <!-- 2. OBJETIVOS DA AULA -->
+    <div class="nota-dica">
+        <h4><span class="emoji-small">💡</span> Para os Adultos: Objetivos da Aula</h4>
+        <ul>
+            <li>Aprender vocabulário do jardim: <strong>tree, flower, grass, bush, rock, bench</strong>.</li>
+            <li><strong>Foco Principal:</strong> Dominar preposições de lugar avançadas: <strong>in, on, under, behind, between, over, above, through</strong>.</li>
+            <li>Praticar contagem (1-10) para brincadeiras.</li>
+            <li>Usar frases de localização: "Where are you?", "I am behind the tree".</li>
+        </ul>
+    </div>
+
+    <!-- 3. SESSÃO DE VOCABULÁRIO -->
+    <h2><span class="emoji-medium">📍</span> Vocabulário: Onde Está? (Where is it?)</h2>
+    <p>Vamos aprender o nome das coisas do jardim e as posições!</p>
+
+    <table class="vocab-table">
+        <thead>
+            <tr>
+                <th>Inglês + Áudio</th>
+                <th>Tradução + Pronúncia</th>
+                <th>Inglês + Áudio</th>
+                <th>Tradução + Pronúncia</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <span class="example-word">Garden</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Garden')" class="play-btn">▶️</button>
+                        <button onclick="speak('Garden', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Jardim<code class="ipa-column">/ˈɡɑːrdn/</code><span class="character-portuguese-phonetics">(GÁR-DEN)</span></td>
+                
+                <td>
+                    <span class="example-word">Tree</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Tree')" class="play-btn">▶️</button>
+                        <button onclick="speak('Tree', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Árvore<code class="ipa-column">/triː/</code><span class="character-portuguese-phonetics">(TRÍ)</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="example-word">Flower</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Flower')" class="play-btn">▶️</button>
+                        <button onclick="speak('Flower', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Flor<code class="ipa-column">/ˈflaʊər/</code><span class="character-portuguese-phonetics">(FLÁU-ER)</span></td>
+                
+                <td>
+                    <span class="example-word">Grass</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Grass')" class="play-btn">▶️</button>
+                        <button onclick="speak('Grass', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Grama<code class="ipa-column">/ɡræs/</code><span class="character-portuguese-phonetics">(GRÉS)</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="example-word">Bush</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Bush')" class="play-btn">▶️</button>
+                        <button onclick="speak('Bush', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Arbusto<code class="ipa-column">/bʊʃ/</code><span class="character-portuguese-phonetics">(BUSH)</span></td>
+                
+                <td>
+                    <span class="example-word">Rock</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Rock')" class="play-btn">▶️</button>
+                        <button onclick="speak('Rock', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Pedra<code class="ipa-column">/rɒk/</code><span class="character-portuguese-phonetics">(RÓK)</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="example-word">Bench</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Bench')" class="play-btn">▶️</button>
+                        <button onclick="speak('Bench', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Banco<code class="ipa-column">/bɛntʃ/</code><span class="character-portuguese-phonetics">(BÊNTCH)</span></td>
+                
+                <td>
+                    <span class="example-word">Fence</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Fence')" class="play-btn">▶️</button>
+                        <button onclick="speak('Fence', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Cerca<code class="ipa-column">/fɛns/</code><span class="character-portuguese-phonetics">(FÊNS)</span></td>
+            </tr>
+            <!-- PREPOSIÇÕES -->
+            <tr>
+                <td>
+                    <span class="example-word">In</span>
+                    <div class="btn-container">
+                        <button onclick="speak('In')" class="play-btn">▶️</button>
+                        <button onclick="speak('In', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Dentro<code class="ipa-column">/ɪn/</code><span class="character-portuguese-phonetics">(IN)</span></td>
+                
+                <td>
+                    <span class="example-word">On</span>
+                    <div class="btn-container">
+                        <button onclick="speak('On')" class="play-btn">▶️</button>
+                        <button onclick="speak('On', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Em cima / Sobre<code class="ipa-column">/ɒn/</code><span class="character-portuguese-phonetics">(ÓN)</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="example-word">Under</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Under')" class="play-btn">▶️</button>
+                        <button onclick="speak('Under', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Embaixo<code class="ipa-column">/ˈʌndər/</code><span class="character-portuguese-phonetics">(ÂN-DER)</span></td>
+                
+                <td>
+                    <span class="example-word">Behind</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Behind')" class="play-btn">▶️</button>
+                        <button onclick="speak('Behind', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Atrás<code class="ipa-column">/bɪˈhaɪnd/</code><span class="character-portuguese-phonetics">(BI-RÁIND)</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="example-word">In front of</span>
+                    <div class="btn-container">
+                        <button onclick="speak('In front of')" class="play-btn">▶️</button>
+                        <button onclick="speak('In front of', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Na frente de<code class="ipa-column">/ɪn frʌnt əv/</code><span class="character-portuguese-phonetics">(IN FRÂNT ÓV)</span></td>
+                
+                <td>
+                    <span class="example-word">Next to</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Next to')" class="play-btn">▶️</button>
+                        <button onclick="speak('Next to', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Ao lado de<code class="ipa-column">/nɛkst tuː/</code><span class="character-portuguese-phonetics">(NÉKST TÚ)</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="example-word">Between</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Between')" class="play-btn">▶️</button>
+                        <button onclick="speak('Between', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Entre (dois)<code class="ipa-column">/bɪˈtwiːn/</code><span class="character-portuguese-phonetics">(BI-TUÍN)</span></td>
+                
+                <td>
+                    <span class="example-word">Over</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Over')" class="play-btn">▶️</button>
+                        <button onclick="speak('Over', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Por cima (movimento)<code class="ipa-column">/ˈoʊvər/</code><span class="character-portuguese-phonetics">(ÔU-VER)</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="example-word">Above</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Above')" class="play-btn">▶️</button>
+                        <button onclick="speak('Above', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Acima (sem tocar)<code class="ipa-column">/əˈbʌv/</code><span class="character-portuguese-phonetics">(A-BÂV)</span></td>
+                
+                <td>
+                    <span class="example-word">Through</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Through')" class="play-btn">▶️</button>
+                        <button onclick="speak('Through', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Através de<code class="ipa-column">/θruː/</code><span class="character-portuguese-phonetics">(THRÚ)</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="example-word">Near</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Near')" class="play-btn">▶️</button>
+                        <button onclick="speak('Near', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Perto<code class="ipa-column">/nɪər/</code><span class="character-portuguese-phonetics">(NÍR)</span></td>
+                
+                <td>
+                    <span class="example-word">Far</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Far')" class="play-btn">▶️</button>
+                        <button onclick="speak('Far', true)" class="slow-btn">🐢</button>
+                    </div>
+                </td>
+                <td>Longe<code class="ipa-column">/fɑːr/</code><span class="character-portuguese-phonetics">(FÁR)</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- AULA DE DETETIVE 1 -->
+    <div class="detetive-box" style="background-color: #e1f5fe; border-left: 5px solid #03a9f4;">
+        <h4 style="color: #0277bd; margin-top:0;">📍 Aula de Detetive 1: Onde Estão as Coisas?</h4>
+        <p>Para encontrar alguém no pique-esconde, precisamos saber as palavras de posição (preposições)!</p>
+        <ul class="detetive-list">
+            <li>
+                <span class="example-word">In</span> 
+                <button onclick="speak('In')" class="play-btn">▶️</button>
+                <code class="ipa-symbol">/ɪn/</code> <span class="character-portuguese-phonetics">(IN)</span> = Dentro 
+                <br><span class="detetive-example">(ex: <span class="example-word">in the box</span> / dentro da caixa)</span>
+            </li>
+            <li>
+                <span class="example-word">On</span>
+                <button onclick="speak('On')" class="play-btn">▶️</button>
+                <code class="ipa-symbol">/ɒn/</code> <span class="character-portuguese-phonetics">(ÓN)</span> = Em cima, tocando
+                <br><span class="detetive-example">(ex: <span class="example-word">on the table</span> / em cima da mesa)</span>
+            </li>
+            <li>
+                <span class="example-word">Under</span>
+                <button onclick="speak('Under')" class="play-btn">▶️</button>
+                <code class="ipa-symbol">/ˈʌndər/</code> <span class="character-portuguese-phonetics">(ÂN-DÃR)</span> = Embaixo
+                <br><span class="detetive-example">(ex: <span class="example-word">under the bed</span> / embaixo da cama)</span>
+            </li>
+            <li>
+                <span class="example-word">Behind</span>
+                <button onclick="speak('Behind')" class="play-btn">▶️</button>
+                <code class="ipa-symbol">/bɪˈhaɪnd/</code> <span class="character-portuguese-phonetics">(BI-RÁIND)</span> = Atrás
+                <br><span class="detetive-example">(ex: <span class="example-word">behind the door</span> / atrás da porta)</span>
+            </li>
+            <li>
+                <span class="example-word">In front of</span>
+                <button onclick="speak('In front of')" class="play-btn">▶️</button>
+                <code class="ipa-symbol">/ɪn frʌnt ɒv/</code> <span class="character-portuguese-phonetics">(IN FRÂNT ÓV)</span> = Na frente de
+                <br><span class="detetive-example">(ex: <span class="example-word">in front of the sofa</span> / na frente do sofá)</span>
+            </li>
+            <li>
+                <span class="example-word">Next to</span>
+                <button onclick="speak('Next to')" class="play-btn">▶️</button>
+                <code class="ipa-symbol">/nɛkst tuː/</code> <span class="character-portuguese-phonetics">(NÉKS-T TÚ)</span> = Ao lado de
+                <br><span class="detetive-example">(ex: <span class="example-word">next to the chair</span> / ao lado da cadeira)</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- AULA DE DETETIVE 2 -->
+    <div class="detetive-box" style="background-color: #fff3e0; border-left: 5px solid #ff9800;">
+        <h4 style="color: #e65100; margin-top:0;">❓ Aula de Detetive 2: As Palavras Mágicas de Pergunta</h4>
+        <p>Um bom detetive precisa saber fazer as perguntas certas! Estas são as nossas ferramentas:</p>
+        <ul class="detetive-list">
+            <li>
+                <span class="example-word">What?</span>
+                <button onclick="speak('What?')" class="play-btn">▶️</button>
+                <code class="ipa-symbol">/wɒt/</code> <span class="character-portuguese-phonetics">(UÁT)</span> = O que? / Qual? (Usamos para coisas e objetos.)
+                <br><span class="detetive-example">Ex: What is this? (O que é isto?)</span>
+            </li>
+            <li>
+                <span class="example-word">Where?</span>
+                <button onclick="speak('Where?')" class="play-btn">▶️</button>
+                <code class="ipa-symbol">/wɛər/</code> <span class="character-portuguese-phonetics">(UÉR)</span> = Onde? (Usamos para lugares.)
+                <br><span class="detetive-example">Ex: Where is Leo? (Onde está o Leo?)</span>
+            </li>
+            <li>
+                <span class="example-word">Who?</span>
+                <button onclick="speak('Who?')" class="play-btn">▶️</button>
+                <code class="ipa-symbol">/huː/</code> <span class="character-portuguese-phonetics">(RÚ)</span> = Quem? (Usamos para pessoas.)
+                <br><span class="detetive-example">Ex: Who is hiding? (Quem está se escondendo?)</span>
+            </li>
+            <li>
+                <span class="example-word">Why?</span>
+                <button onclick="speak('Why?')" class="play-btn">▶️</button>
+                <code class="ipa-symbol">/waɪ/</code> <span class="character-portuguese-phonetics">(UÁI)</span> = Por quê? (Usamos para saber o motivo.)
+                <br><span class="detetive-example">Ex: Why are you under the table? (Por que você está embaixo da mesa?)</span>
+            </li>
+            <li>
+                <span class="example-word">How?</span>
+                <button onclick="speak('How?')" class="play-btn">▶️</button>
+                <code class="ipa-symbol">/haʊ/</code> <span class="character-portuguese-phonetics">(RÁU)</span> = Como? (Usamos para saber o jeito.)
+                <br><span class="detetive-example">Ex: How did you find me? (Como você me achou?)</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 4. SESSÃO DE FRASES (25 LINHAS, 2 COLUNAS) -->
+    <h2><span class="emoji-medium">📖</span> Nossas Frases de Pique-Esconde!</h2>
+    <p>A brincadeira começou! Pratique o diálogo entre quem procura (Guia) e quem se esconde (Criança).</p>
+
+    <table class="vocab-table">
+        <thead>
+            <tr>
+                <th style="width: 50%;">Quem Procura (Pai/Mãe)</th>
+                <th style="width: 50%;">Quem se Esconde (Criança)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 1 -->
+            <tr>
+                <td>
+                    <span class="example-word">Let's play Hide and Seek!</span>
+                    <span class="translation-in-cell">(Vamos brincar de Pique-Esconde!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Let\'s play Hide and Seek!')" class="play-btn">▶️</button>
+                        <button onclick="speak('Let\'s play Hide and Seek!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/lɛts pleɪ haɪd ænd siːk/</code>
+                    <span class="character-portuguese-phonetics">(LÉTS PLÊI RÁID ÉND SÍK!)</span>
+                </td>
+                <td>
+                    <span class="example-word">Yes! You count, I hide!</span>
+                    <span class="translation-in-cell">(Sim! Você conta, eu me escondo!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Yes! You count, I hide!')" class="play-btn">▶️</button>
+                        <button onclick="speak('Yes! You count, I hide!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/jɛs juː kaʊnt aɪ haɪd/</code>
+                    <span class="character-portuguese-phonetics">(IÉS! IÚ CÁUNT, ÁI RÁID!)</span>
+                </td>
+            </tr>
+            <!-- 2 -->
+            <tr>
+                <td>
+                    <span class="example-word">Count to ten!</span>
+                    <span class="translation-in-cell">(Conte até dez!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Count to ten!')" class="play-btn">▶️</button>
+                        <button onclick="speak('Count to ten!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/kaʊnt tuː tɛn/</code>
+                    <span class="character-portuguese-phonetics">(CÁUNT TÚ TÉN!)</span>
+                </td>
+                <td>
+                    <span class="example-word">One, two, three...</span>
+                    <span class="translation-in-cell">(Um, dois, três...)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('One, two, three...')" class="play-btn">▶️</button>
+                        <button onclick="speak('One, two, three...', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/wʌn tuː θriː/</code>
+                    <span class="character-portuguese-phonetics">(UÂN, TÚ, THRÍ...)</span>
+                </td>
+            </tr>
+            <!-- 3 -->
+            <tr>
+                <td>
+                    <span class="example-word">Don't peek!</span>
+                    <span class="translation-in-cell">(Não espie!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Don\'t peek!')" class="play-btn">▶️</button>
+                        <button onclick="speak('Don\'t peek!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/doʊnt piːk/</code>
+                    <span class="character-portuguese-phonetics">(DÔUNT PÍK!)</span>
+                </td>
+                <td>
+                    <span class="example-word">I am not peeking!</span>
+                    <span class="translation-in-cell">(Não estou espiando!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('I am not peeking!')" class="play-btn">▶️</button>
+                        <button onclick="speak('I am not peeking!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/aɪ æm nɒt ˈpiːkɪŋ/</code>
+                    <span class="character-portuguese-phonetics">(ÁI ÉM NÓT PÍ-KIN!)</span>
+                </td>
+            </tr>
+            <!-- 4 -->
+            <tr>
+                <td>
+                    <span class="example-word">Ready or not, here I come!</span>
+                    <span class="translation-in-cell">(Pronto ou não, lá vou eu!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Ready or not, here I come!')" class="play-btn">▶️</button>
+                        <button onclick="speak('Ready or not, here I come!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/ˈrɛdi ɔːr nɒt hɪər aɪ kʌm/</code>
+                    <span class="character-portuguese-phonetics">(RÉ-DI ÓR NÓT, RÍR ÁI CÂM!)</span>
+                </td>
+                <td>
+                    <span class="example-word">(Silence...)</span>
+                    <span class="translation-in-cell">(Silêncio...)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Silence...')" class="play-btn">▶️</button>
+                        <button onclick="speak('Silence...', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/ˈsaɪləns/</code>
+                    <span class="character-portuguese-phonetics">(SÁI-LENS...)</span>
+                </td>
+            </tr>
+            <!-- 5 -->
+            <tr>
+                <td>
+                    <span class="example-word">Where are you?</span>
+                    <span class="translation-in-cell">(Onde você está?)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Where are you?')" class="play-btn">▶️</button>
+                        <button onclick="speak('Where are you?', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/wɛər ɑːr juː/</code>
+                    <span class="character-portuguese-phonetics">(UÉR ÁR IÚ?)</span>
+                </td>
+                <td>
+                    <span class="example-word">I am hiding!</span>
+                    <span class="translation-in-cell">(Estou me escondendo!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('I am hiding!')" class="play-btn">▶️</button>
+                        <button onclick="speak('I am hiding!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/aɪ æm ˈhaɪdɪŋ/</code>
+                    <span class="character-portuguese-phonetics">(ÁI ÉM RÁI-DIN!)</span>
+                </td>
+            </tr>
+            <!-- 6 -->
+            <tr>
+                <td>
+                    <span class="example-word">Are you behind the tree?</span>
+                    <span class="translation-in-cell">(Você está atrás da árvore?)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Are you behind the tree?')" class="play-btn">▶️</button>
+                        <button onclick="speak('Are you behind the tree?', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/ɑːr juː bɪˈhaɪnd ðə triː/</code>
+                    <span class="character-portuguese-phonetics">(ÁR IÚ BI-RÁIND DÃ TRÍ?)</span>
+                </td>
+                <td>
+                    <span class="example-word">No, I am not.</span>
+                    <span class="translation-in-cell">(Não, não estou.)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('No, I am not.')" class="play-btn">▶️</button>
+                        <button onclick="speak('No, I am not.', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/noʊ aɪ æm nɒt/</code>
+                    <span class="character-portuguese-phonetics">(NÔU, ÁI ÉM NÓT.)</span>
+                </td>
+            </tr>
+            <!-- 7 -->
+            <tr>
+                <td>
+                    <span class="example-word">Are you under the bench?</span>
+                    <span class="translation-in-cell">(Você está embaixo do banco?)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Are you under the bench?')" class="play-btn">▶️</button>
+                        <button onclick="speak('Are you under the bench?', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/ɑːr juː ˈʌndər ðə bɛntʃ/</code>
+                    <span class="character-portuguese-phonetics">(ÁR IÚ ÂN-DER DÃ BÊNTCH?)</span>
+                </td>
+                <td>
+                    <span class="example-word">No, look again!</span>
+                    <span class="translation-in-cell">(Não, olhe de novo!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('No, look again!')" class="play-btn">▶️</button>
+                        <button onclick="speak('No, look again!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/noʊ lʊk əˈɡɛn/</code>
+                    <span class="character-portuguese-phonetics">(NÔU, LÚK A-GUÉN!)</span>
+                </td>
+            </tr>
+            <!-- 8 -->
+            <tr>
+                <td>
+                    <span class="example-word">Are you in the box?</span>
+                    <span class="translation-in-cell">(Você está dentro da caixa?)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Are you in the box?')" class="play-btn">▶️</button>
+                        <button onclick="speak('Are you in the box?', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/ɑːr juː ɪn ðə bɒks/</code>
+                    <span class="character-portuguese-phonetics">(ÁR IÚ IN DÃ BÓKS?)</span>
+                </td>
+                <td>
+                    <span class="example-word">Nope! Wrong place!</span>
+                    <span class="translation-in-cell">(Não! Lugar errado!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Nope! Wrong place!')" class="play-btn">▶️</button>
+                        <button onclick="speak('Nope! Wrong place!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/noʊp rɒŋ pleɪs/</code>
+                    <span class="character-portuguese-phonetics">(NÔUP! RÓNG PLÊIS!)</span>
+                </td>
+            </tr>
+            <!-- 9 -->
+            <tr>
+                <td>
+                    <span class="example-word">Are you next to the flowers?</span>
+                    <span class="translation-in-cell">(Você está ao lado das flores?)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Are you next to the flowers?')" class="play-btn">▶️</button>
+                        <button onclick="speak('Are you next to the flowers?', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/ɑːr juː nɛkst tuː ðə ˈflaʊərz/</code>
+                    <span class="character-portuguese-phonetics">(ÁR IÚ NÉKST TÚ DÃ FLÁU-ERS?)</span>
+                </td>
+                <td>
+                    <span class="example-word">Maybe...</span>
+                    <span class="translation-in-cell">(Talvez...)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Maybe...')" class="play-btn">▶️</button>
+                        <button onclick="speak('Maybe...', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/ˈmeɪbi/</code>
+                    <span class="character-portuguese-phonetics">(MÊI-BI...)</span>
+                </td>
+            </tr>
+            <!-- 10 -->
+            <tr>
+                <td>
+                    <span class="example-word">I see your foot!</span>
+                    <span class="translation-in-cell">(Eu vejo seu pé!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('I see your foot!')" class="play-btn">▶️</button>
+                        <button onclick="speak('I see your foot!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/aɪ siː jʊər fʊt/</code>
+                    <span class="character-portuguese-phonetics">(ÁI SÍ IÓR FÚT!)</span>
+                </td>
+                <td>
+                    <span class="example-word">Oh no! You found me!</span>
+                    <span class="translation-in-cell">(Ah não! Você me achou!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Oh no! You found me!')" class="play-btn">▶️</button>
+                        <button onclick="speak('Oh no! You found me!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/oʊ noʊ juː faʊnd miː/</code>
+                    <span class="character-portuguese-phonetics">(ÔU NÔU! IÚ FÁUND MÍ!)</span>
+                </td>
+            </tr>
+            <!-- 11 -->
+            <tr>
+                <td>
+                    <span class="example-word">Jump over the rock!</span>
+                    <span class="translation-in-cell">(Pule por cima da pedra!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Jump over the rock!')" class="play-btn">▶️</button>
+                        <button onclick="speak('Jump over the rock!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/dʒʌmp ˈoʊvər ðə rɒk/</code>
+                    <span class="character-portuguese-phonetics">(DJÂMP ÔU-VER DÃ RÓK!)</span>
+                </td>
+                <td>
+                    <span class="example-word">I am jumping!</span>
+                    <span class="translation-in-cell">(Estou pulando!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('I am jumping!')" class="play-btn">▶️</button>
+                        <button onclick="speak('I am jumping!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/aɪ æm ˈdʒʌmpɪŋ/</code>
+                    <span class="character-portuguese-phonetics">(ÁI ÉM DJÂM-PIN!)</span>
+                </td>
+            </tr>
+            <!-- 12 -->
+            <tr>
+                <td>
+                    <span class="example-word">The bird is above the tree.</span>
+                    <span class="translation-in-cell">(O pássaro está acima da árvore.)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('The bird is above the tree.')" class="play-btn">▶️</button>
+                        <button onclick="speak('The bird is above the tree.', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/ðə bɜːrd ɪz əˈbʌv ðə triː/</code>
+                    <span class="character-portuguese-phonetics">(DÃ BÃRD ÍS A-BÂV DÃ TRÍ.)</span>
+                </td>
+                <td>
+                    <span class="example-word">Look up!</span>
+                    <span class="translation-in-cell">(Olhe para cima!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Look up!')" class="play-btn">▶️</button>
+                        <button onclick="speak('Look up!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/lʊk ʌp/</code>
+                    <span class="character-portuguese-phonetics">(LÚK ÂP!)</span>
+                </td>
+            </tr>
+            <!-- 13 -->
+            <tr>
+                <td>
+                    <span class="example-word">Go through the gate.</span>
+                    <span class="translation-in-cell">(Passe através do portão.)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Go through the gate.')" class="play-btn">▶️</button>
+                        <button onclick="speak('Go through the gate.', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/ɡoʊ θruː ðə ɡeɪt/</code>
+                    <span class="character-portuguese-phonetics">(GÔU THRÚ DÃ GUÊIT.)</span>
+                </td>
+                <td>
+                    <span class="example-word">Okay, I am going.</span>
+                    <span class="translation-in-cell">(Ok, estou indo.)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Okay, I am going.')" class="play-btn">▶️</button>
+                        <button onclick="speak('Okay, I am going.', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/oʊˈkeɪ aɪ æm ˈɡoʊɪŋ/</code>
+                    <span class="character-portuguese-phonetics">(OKÊI, ÁI ÉM GÔU-IN.)</span>
+                </td>
+            </tr>
+            <!-- 14 -->
+            <tr>
+                <td>
+                    <span class="example-word">Stand between the bushes.</span>
+                    <span class="translation-in-cell">(Fique entre os arbustos.)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Stand between the bushes.')" class="play-btn">▶️</button>
+                        <button onclick="speak('Stand between the bushes.', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/stænd bɪˈtwiːn ðə ˈbʊʃɪz/</code>
+                    <span class="character-portuguese-phonetics">(STÉND BI-TUÍN DÃ BÚ-SHIS.)</span>
+                </td>
+                <td>
+                    <span class="example-word">It is a good hiding spot.</span>
+                    <span class="translation-in-cell">(É um bom esconderijo.)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('It is a good hiding spot.')" class="play-btn">▶️</button>
+                        <button onclick="speak('It is a good hiding spot.', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/ɪt ɪz ə ɡʊd ˈhaɪdɪŋ spɒt/</code>
+                    <span class="character-portuguese-phonetics">(IT ÍS A GÚD RÁI-DIN SPÓT.)</span>
+                </td>
+            </tr>
+            <!-- 15 -->
+            <tr>
+                <td>
+                    <span class="example-word">Sit on the grass.</span>
+                    <span class="translation-in-cell">(Sente na grama.)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Sit on the grass.')" class="play-btn">▶️</button>
+                        <button onclick="speak('Sit on the grass.', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/sɪt ɒn ðə ɡræs/</code>
+                    <span class="character-portuguese-phonetics">(SIT ÓN DÃ GRÉS.)</span>
+                </td>
+                <td>
+                    <span class="example-word">It is soft.</span>
+                    <span class="translation-in-cell">(É macia.)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('It is soft.')" class="play-btn">▶️</button>
+                        <button onclick="speak('It is soft.', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/ɪt ɪz sɒft/</code>
+                    <span class="character-portuguese-phonetics">(IT ÍS SÓFT.)</span>
+                </td>
+            </tr>
+            <!-- 16 -->
+            <tr>
+                <td>
+                    <span class="example-word">Run to the tree!</span>
+                    <span class="translation-in-cell">(Corra para a árvore!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Run to the tree!')" class="play-btn">▶️</button>
+                        <button onclick="speak('Run to the tree!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/rʌn tuː ðə triː/</code>
+                    <span class="character-portuguese-phonetics">(RÂN TÚ DÃ TRÍ!)</span>
+                </td>
+                <td>
+                    <span class="example-word">Safe!</span>
+                    <span class="translation-in-cell">(Salvo!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Safe!')" class="play-btn">▶️</button>
+                        <button onclick="speak('Safe!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/seɪf/</code>
+                    <span class="character-portuguese-phonetics">(SÊIF!)</span>
+                </td>
+            </tr>
+            <!-- 17 -->
+            <tr>
+                <td>
+                    <span class="example-word">You are far away.</span>
+                    <span class="translation-in-cell">(Você está longe.)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('You are far away.')" class="play-btn">▶️</button>
+                        <button onclick="speak('You are far away.', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/juː ɑːr fɑːr əˈweɪ/</code>
+                    <span class="character-portuguese-phonetics">(IÚ ÁR FÁR A-UÊI.)</span>
+                </td>
+                <td>
+                    <span class="example-word">Come closer!</span>
+                    <span class="translation-in-cell">(Venha mais perto!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Come closer!')" class="play-btn">▶️</button>
+                        <button onclick="speak('Come closer!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/kʌm ˈkloʊsər/</code>
+                    <span class="character-portuguese-phonetics">(CÂM CLÔU-SER!)</span>
+                </td>
+            </tr>
+            <!-- 18 -->
+            <tr>
+                <td>
+                    <span class="example-word">Is he near the fence?</span>
+                    <span class="translation-in-cell">(Ele está perto da cerca?)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Is he near the fence?')" class="play-btn">▶️</button>
+                        <button onclick="speak('Is he near the fence?', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/ɪz hiː nɪər ðə fɛns/</code>
+                    <span class="character-portuguese-phonetics">(ÍS RÍ NÍR DÃ FÊNS?)</span>
+                </td>
+                <td>
+                    <span class="example-word">Yes, he is.</span>
+                    <span class="translation-in-cell">(Sim, ele está.)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Yes, he is.')" class="play-btn">▶️</button>
+                        <button onclick="speak('Yes, he is.', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/jɛs hiː ɪz/</code>
+                    <span class="character-portuguese-phonetics">(IÉS, RÍ ÍS.)</span>
+                </td>
+            </tr>
+            <!-- 19 -->
+            <tr>
+                <td>
+                    <span class="example-word">Look in front of you.</span>
+                    <span class="translation-in-cell">(Olhe na sua frente.)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Look in front of you.')" class="play-btn">▶️</button>
+                        <button onclick="speak('Look in front of you.', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/lʊk ɪn frʌnt əv juː/</code>
+                    <span class="character-portuguese-phonetics">(LÚK IN FRÂNT ÓV IÚ.)</span>
+                </td>
+                <td>
+                    <span class="example-word">I see a butterfly!</span>
+                    <span class="translation-in-cell">(Vejo uma borboleta!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('I see a butterfly!')" class="play-btn">▶️</button>
+                        <button onclick="speak('I see a butterfly!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/aɪ siː ə ˈbʌtərflaɪ/</code>
+                    <span class="character-portuguese-phonetics">(ÁI SÍ A BÃ-TER-FLÁI!)</span>
+                </td>
+            </tr>
+            <!-- 20 -->
+            <tr>
+                <td>
+                    <span class="example-word">Crawl under the slide.</span>
+                    <span class="translation-in-cell">(Engatinhe embaixo do escorregador.)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Crawl under the slide.')" class="play-btn">▶️</button>
+                        <button onclick="speak('Crawl under the slide.', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/krɔːl ˈʌndər ðə slaɪd/</code>
+                    <span class="character-portuguese-phonetics">(CRÓL ÂN-DER DÃ SLÁID.)</span>
+                </td>
+                <td>
+                    <span class="example-word">It is dark here.</span>
+                    <span class="translation-in-cell">(Está escuro aqui.)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('It is dark here.')" class="play-btn">▶️</button>
+                        <button onclick="speak('It is dark here.', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/ɪt ɪz dɑːrk hɪər/</code>
+                    <span class="character-portuguese-phonetics">(IT ÍS DÁRK RÍR.)</span>
+                </td>
+            </tr>
+            <!-- 21 -->
+            <tr>
+                <td>
+                    <span class="example-word">Walk around the rock.</span>
+                    <span class="translation-in-cell">(Ande em volta da pedra.)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Walk around the rock.')" class="play-btn">▶️</button>
+                        <button onclick="speak('Walk around the rock.', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/wɔːk əˈraʊnd ðə rɒk/</code>
+                    <span class="character-portuguese-phonetics">(UÓK A-RÁUND DÃ RÓK.)</span>
+                </td>
+                <td>
+                    <span class="example-word">I am dizzy!</span>
+                    <span class="translation-in-cell">(Estou tonto!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('I am dizzy!')" class="play-btn">▶️</button>
+                        <button onclick="speak('I am dizzy!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/aɪ æm ˈdɪzi/</code>
+                    <span class="character-portuguese-phonetics">(ÁI ÉM DÍ-ZI!)</span>
+                </td>
+            </tr>
+            <!-- 22 -->
+            <tr>
+                <td>
+                    <span class="example-word">My turn to count!</span>
+                    <span class="translation-in-cell">(Minha vez de contar!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('My turn to count!')" class="play-btn">▶️</button>
+                        <button onclick="speak('My turn to count!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/maɪ tɜːrn tuː kaʊnt/</code>
+                    <span class="character-portuguese-phonetics">(MÁI TÃRN TÚ CÁUNT!)</span>
+                </td>
+                <td>
+                    <span class="example-word">Go hide quickly!</span>
+                    <span class="translation-in-cell">(Vá se esconder rápido!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Go hide quickly!')" class="play-btn">▶️</button>
+                        <button onclick="speak('Go hide quickly!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/ɡoʊ haɪd ˈkwɪkli/</code>
+                    <span class="character-portuguese-phonetics">(GÔU RÁID QUÍK-LI!)</span>
+                </td>
+            </tr>
+            <!-- 23 -->
+            <tr>
+                <td>
+                    <span class="example-word">Are you inside?</span>
+                    <span class="translation-in-cell">(Você está dentro [de casa]?)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Are you inside?')" class="play-btn">▶️</button>
+                        <button onclick="speak('Are you inside?', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/ɑːr juː ɪnˈsaɪd/</code>
+                    <span class="character-portuguese-phonetics">(ÁR IÚ IN-SÁID?)</span>
+                </td>
+                <td>
+                    <span class="example-word">No, outside!</span>
+                    <span class="translation-in-cell">(Não, fora!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('No, outside!')" class="play-btn">▶️</button>
+                        <button onclick="speak('No, outside!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/noʊ aʊtˈsaɪd/</code>
+                    <span class="character-portuguese-phonetics">(NÔU, ÁUT-SÁID!)</span>
+                </td>
+            </tr>
+            <!-- 24 -->
+            <tr>
+                <td>
+                    <span class="example-word">It's getting late.</span>
+                    <span class="translation-in-cell">(Está ficando tarde.)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('It\'s getting late.')" class="play-btn">▶️</button>
+                        <button onclick="speak('It\'s getting late.', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/ɪts ˈɡɛtɪŋ leɪt/</code>
+                    <span class="character-portuguese-phonetics">(ITS GUÉ-TIN LÊIT.)</span>
+                </td>
+                <td>
+                    <span class="example-word">One more game?</span>
+                    <span class="translation-in-cell">(Mais um jogo?)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('One more game?')" class="play-btn">▶️</button>
+                        <button onclick="speak('One more game?', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/wʌn mɔːr ɡeɪm/</code>
+                    <span class="character-portuguese-phonetics">(UÂN MÓR GUÊIM?)</span>
+                </td>
+            </tr>
+            <!-- 25 -->
+            <tr>
+                <td>
+                    <span class="example-word">Game over!</span>
+                    <span class="translation-in-cell">(Fim de jogo!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('Game over!')" class="play-btn">▶️</button>
+                        <button onclick="speak('Game over!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/ɡeɪm ˈoʊvər/</code>
+                    <span class="character-portuguese-phonetics">(GUÊIM ÔU-VER!)</span>
+                </td>
+                <td>
+                    <span class="example-word">It was fun!</span>
+                    <span class="translation-in-cell">(Foi divertido!)</span>
+                    <div class="btn-container">
+                        <button onclick="speak('It was fun!')" class="play-btn">▶️</button>
+                        <button onclick="speak('It was fun!', true)" class="slow-btn">🐢</button>
+                    </div>
+                    <code class="ipa-column">/ɪt wɒz fʌn/</code>
+                    <span class="character-portuguese-phonetics">(IT UÓZ FÂN!)</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 5. SESSÃO DE DIÁLOGOS -->
+    <h2><span class="emoji-medium">💬</span> Conversa no Jardim</h2>
+    <p>Vamos ver como é procurar alguém escondido?</p>
+
+    <h3>Diálogo 1: Onde está o Leo?</h3>
+    <div class="dialogue">
+        <p>
+            <span class="character">Mamãe:</span> Leo, where are you? Are you behind the bush? 
+            <button onclick="speak('Leo, where are you? Are you behind the bush?')" class="play-btn">▶️</button>
+            <button onclick="speak('Leo, where are you? Are you behind the bush?', true)" class="slow-btn">🐢</button>
+            (Leo, onde você está? Você está atrás do arbusto?)<br>
+            <span class="ipa-phrase-block"><code>/ˈliːoʊ wɛər ɑːr juː ɑːr juː bɪˈhaɪnd ðə bʊʃ/</code></span>
+        </p>
+
+        <p>
+            <span class="character">Leo:</span> (giggles) No, I am not! 
+            <button onclick="speak('No, I am not!')" class="play-btn">▶️</button>
+            <button onclick="speak('No, I am not!', true)" class="slow-btn">🐢</button>
+            (risadinhas) (Não, não estou!)<br>
+            <span class="ipa-phrase-block"><code>/noʊ aɪ æm nɒt/</code></span>
+        </p>
+    </div>
+    
+    <h3>Diálogo 2: Eu te achei!</h3>
+    <div class="dialogue">
+        <p>
+            <span class="character">Lina:</span> I see your shoes! You are under the bench!
+            <button onclick="speak('I see your shoes! You are under the bench!')" class="play-btn">▶️</button>
+            <button onclick="speak('I see your shoes! You are under the bench!', true)" class="slow-btn">🐢</button>
+            (Eu vejo seus sapatos! Você está embaixo do banco!)<br>
+            <span class="ipa-phrase-block"><code>/aɪ siː jʊər ʃuːz juː ɑːr ˈʌndər ðə bɛntʃ/</code></span>
+        </p>
+
+        <p>
+            <span class="character">Papai:</span> Oh no! You found me! You are good!
+            <button onclick="speak('Oh no! You found me! You are good!')" class="play-btn">▶️</button>
+            <button onclick="speak('Oh no! You found me! You are good!', true)" class="slow-btn">🐢</button>
+            (Ah não! Você me achou! Você é boa!)<br>
+            <span class="ipa-phrase-block"><code>/oʊ noʊ juː faʊnd miː juː ɑːr ɡʊd/</code></span>
+        </p>
+    </div>
+
+    <!-- 6. DICA DE PRONÚNCIA -->
+    <div class="nota-dica">
+        <h4><span class="emoji-small">🗣️</span> Dica de Pronúncia: O som do "Wh"</h4>
+        <p>A palavra <span class="example-word">Where</span> (Onde) começa com um som suave de sopro, quase como um "U" rápido. Tente fazer um biquinho!</p>
+        <p>**O truque:** Imagine que você está soprando uma vela suavemente enquanto diz "Ué".</p>
+        <ul>
+            <li>
+                <span class="example-word">Where</span> <span class="ipa-symbol">/wɛər/</span> (UÉR) 
+                <button onclick="speak('Where')" class="play-btn">▶️</button>
+            </li>
+            <li>
+                <span class="example-word">What</span> <span class="ipa-symbol">/wɒt/</span> (UÁT) 
+                <button onclick="speak('What')" class="play-btn">▶️</button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 7. VAMOS BRINCAR -->
+    <div class="secao-pratica">
+        <h3>Vamos Brincar e Aprender! 🎉</h3>
+        <h4>Caça ao Tesouro com Preposições!</h4>
+        <p>O adulto esconde um brinquedo (ex: uma bola) e dá dicas usando as preposições para a criança encontrar.</p>
+        <ul class="exercise-list">
+            <li>
+                <p>Papai/Mamãe diz: "It is <span class="example-word">under</span> the chair." 
+                    <button onclick="speak('It is under the chair.')" class="play-btn">▶️</button>
+                    <button onclick="speak('It is under the chair.', true)" class="slow-btn">🐢</button>
+                    <br>
+                    <span class="ipa-phrase-block"><code>/ɪt ɪz ˈʌndər ðə tʃɛər/</code></span>
+                    (Está embaixo da cadeira.)
+                </p>
+            </li>
+            <li>
+                <p>Papai/Mamãe diz: "It is <span class="example-word">on</span> the table." 
+                    <button onclick="speak('It is on the table.')" class="play-btn">▶️</button>
+                    <button onclick="speak('It is on the table.', true)" class="slow-btn">🐢</button>
+                    <br>
+                    <span class="ipa-phrase-block"><code>/ɪt ɪz ɒn ðə ˈteɪbəl/</code></span>
+                    (Está em cima da mesa.)
+                </p>
+            </li>
+            <li>
+                <p>Papai/Mamãe diz: "It is <span class="example-word">behind</span> the door." 
+                    <button onclick="speak('It is behind the door.')" class="play-btn">▶️</button>
+                    <button onclick="speak('It is behind the door.', true)" class="slow-btn">🐢</button>
+                    <br>
+                    <span class="ipa-phrase-block"><code>/ɪt ɪz bɪˈhaɪnd ðə dɔːr/</code></span>
+                    (Está atrás da porta.)
+                </p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 8. PARABÉNS -->
+    <h3>Parabéns, Explorador do Jardim! 🏆</h3>
+    <p>Você é ótimo em encontrar coisas! Agora você sabe como dizer onde tudo está escondido em inglês. Ninguém vai conseguir se esconder de você!</p>
+    <p><strong>Agora, que tal praticar mais?</strong> No seu material de atividades extras, você encontrará desenhos de jardins para <strong>colorir</strong> 🎨 e marcar onde estão os animais (in, on, under). Vá fazer suas atividades enquanto o papai/mamãe prepara a próxima aventura! Até a próxima aula!</p>
+</div>
+
+<!-- Script para fazer o botão de áudio Inline funcionar -->
+<script>
+    function speak(text, slow = false) {
+        if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            if (slow) {
+                utterance.rate = 0.6; // Velocidade mais lenta
+            } else {
+                utterance.rate = 1; // Velocidade normal
+            }
+            
+            // Tenta selecionar uma voz em inglês
+            const voices = window.speechSynthesis.getVoices();
+            const enVoice = voices.find(v => v.lang.startsWith('en-'));
+            if (enVoice) {
+                utterance.voice = enVoice;
+            }
+
+            window.speechSynthesis.speak(utterance);
+        } else {
+            alert("Seu navegador não suporta áudio nativo. Tente usar o Google Chrome.");
+        }
+    }
+
+    // Carrega as vozes (necessário para alguns navegadores)
+    window.speechSynthesis.onvoiceschanged = () => {
+        window.speechSynthesis.getVoices();
+    };
+</script>
+
+</body>
+</html>
